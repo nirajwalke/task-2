@@ -1,0 +1,18 @@
+.details {
+  margin-left: 10%;
+  width: 76%;
+}
+
+.form-horizontal .control-label {
+  text-align: left;
+  width: 100%;
+}
+
+.guest-css {
+  margin-left: 10%;
+  width: 76%;
+  background-color: darkgray !important;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+  font-weight: 600;
+}

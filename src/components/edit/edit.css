@@ -1,0 +1,9 @@
+.register-form {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.form-horizontal .control-label {
+  text-align: left;
+  width: 100%;
+}
