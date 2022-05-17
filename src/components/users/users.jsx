@@ -12,7 +12,7 @@ const Users = (props) => {
   const pageSize = 10;
 
   useEffect(() => {
-    fetch("http://localhost:3000/users/").then((result) => {
+    fetch("https://json-server-task-1.herokuapp.com/taskusers/").then((result) => {
       result.json().then((resp) => {
         console.warn("result", resp);
         setMasterData(resp);
