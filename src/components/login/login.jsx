@@ -27,7 +27,7 @@ const Login = () => {
     ) {
       setValidated(true);
     } else {
-      fetch("http://localhost:3000/users")
+      fetch("https://json-server-task-1.herokuapp.com/taskusers")
         .then((response) => response.json())
         .then((data) => {
           let user = data.find(
