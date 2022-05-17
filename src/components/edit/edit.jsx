@@ -11,7 +11,7 @@ const Edit = () => {
 
   useEffect(() => {
     console.log("id", id);
-    fetch("http://localhost:3000/users/" + id)
+    fetch("https://json-server-task-1.herokuapp.com/taskusers/" + id)
       .then((response) => response.json())
       .then((data) => {
         setUser(data);
@@ -45,7 +45,7 @@ const Edit = () => {
     ) {
       setValidated(true);
     } else {
-      fetch(`http://localhost:3000/users/${id}`, {
+      fetch(`https://json-server-task-1.herokuapp.com/taskusers/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
