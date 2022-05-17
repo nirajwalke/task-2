@@ -33,7 +33,7 @@ const Register = () => {
     ) {
       setValidated(true);
     } else {
-      fetch("http://localhost:3000/users", {
+      fetch("https://json-server-task-1.herokuapp.com/taskusers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
