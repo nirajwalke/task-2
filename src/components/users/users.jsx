@@ -12,16 +12,22 @@ const Users = (props) => {
   const pageSize = 10;
 
   useEffect(() => {
-    fetch("https://json-server-task-1.herokuapp.com/taskusers/").then((result) => {
+    fetch("https://datapeace-storage.s3-us-west-2.amazonaws.com/dummy_data/users.json").then((resultMain) => {
+      resultMain.json().then((respMain) => {
+        console.warn("result", respMain);
+        fetch("https://json-server-task-1.herokuapp.com/taskusers/").then((result) => {
       result.json().then((resp) => {
         console.warn("result", resp);
-        setMasterData(resp);
-        let tempData = resp.slice(0, 10);
+        let fullData = [...respMain, ...resp];
+        setMasterData(fullData);
+        let tempData = fullData.slice(0, 10);
         setData(tempData);
-        setFilteredData(resp);
+        setFilteredData(fullData);
       });
     });
-  }, []);
+      });
+    
+  })}, []);
 
   const previousPage = () => {
     if (pageNo > 1) {
@@ -43,8 +49,8 @@ const Users = (props) => {
     setPageNo(1);
     let tempFilteredData = masterData.filter(
       (d) =>
-        d.first_name.toLowerCase().startsWith(searchKey) ||
-        d.last_name.toLowerCase().startsWith(searchKey)
+        d.first_name.toLowerCase().startsWith(searchKey.toLowerCase()) ||
+        d.last_name.toLowerCase().startsWith(searchKey.toLowerCase())
     );
     let tempData = tempFilteredData.slice(0, 10);
     setData(tempData);
